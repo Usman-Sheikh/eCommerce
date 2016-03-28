@@ -1,4 +1,6 @@
-﻿using System;
+﻿using eCommerce.Contracts.Repositories;
+using eCommerce.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,14 @@ namespace eCommerce.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        IRepositoryBase<Customer> customers;
+
+
+        public HomeController(IRepositoryBase<Customer> customers)
+        {
+            this.customers = customers;
+        }
+
         public ActionResult Index()
         {
             return View();
